@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pro Clean Window Detailing — Pricing</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0d1b2a; --sky: #1a6bbf; --sky-light: #4fc3f7;
+    --ice: #e8f4f8; --gold: #f0c040; --white: #ffffff; --gray: #6b7a8d;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a2a38; font-family: 'DM Sans', sans-serif; display: flex; flex-direction: column; align-items: center; padding: 30px 16px; min-height: 100vh; }
+  .pricing-card { width: 100%; max-width: 580px; background: var(--white); border-radius: 20px; overflow: hidden; box-shadow: 0 30px 80px rgba(0,0,0,0.3); }
+  .pricing-header { background: linear-gradient(160deg, #0d1b2a 0%, #1a3a52 100%); padding: 40px 44px 36px; position: relative; overflow: hidden; }
+  .pricing-header::before { content: ''; position: absolute; top: -60px; right: -60px; width: 220px; height: 220px; background: radial-gradient(circle, rgba(79,195,247,0.13) 0%, transparent 70%); border-radius: 50%; }
+  .pricing-header::after { content: '◈'; position: absolute; right: 36px; bottom: -10px; font-size: 110px; color: rgba(79,195,247,0.07); line-height: 1; }
+  .pricing-header .eyebrow { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--sky-light); margin-bottom: 10px; }
+  .pricing-header h1 { font-family: 'DM Serif Display', serif; font-size: 34px; color: var(--white); line-height: 1.15; }
+  .pricing-header h1 em { color: var(--sky-light); font-style: italic; }
+  .pricing-header .header-note { margin-top: 12px; font-size: 12px; color: rgba(255,255,255,0.45); letter-spacing: 0.5px; }
+  .strip { background: var(--sky); padding: 10px 44px; font-family: 'Bebas Neue', sans-serif; font-size: 14px; letter-spacing: 3px; color: var(--white); display: flex; align-items: center; gap: 10px; }
+  .pricing-body { padding: 36px 44px; }
+  .section-title { font-family: 'Bebas Neue', sans-serif; font-size: 13px; letter-spacing: 4px; color: var(--gray); margin-bottom: 4px; padding-bottom: 8px; border-bottom: 1px solid #e8ecf0; }
+  .section-sub { font-size: 11px; color: #a0adb8; margin-bottom: 14px; }
+  .price-row { display: flex; justify-content: space-between; align-items: center; padding: 13px 0; border-bottom: 1px dashed #e8ecf0; }
+  .price-row:last-child { border-bottom: none; }
+  .price-row .item { font-size: 14px; color: var(--navy); font-weight: 500; }
+  .price-row .desc { font-size: 11.5px; color: var(--gray); margin-top: 2px; font-weight: 300; }
+  .price-row .price { font-family: 'DM Serif Display', serif; font-size: 22px; color: var(--navy); white-space: nowrap; text-align: right; }
+  .price-row .price sup { font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 600; vertical-align: super; }
+  .price-row .price small { font-family: 'DM Sans', sans-serif; font-size: 11px; color: var(--gray); }
+  .price-row .badge { display: inline-block; background: rgba(26,107,191,0.1); color: var(--sky); font-size: 10px; font-weight: 600; letter-spacing: 1px; padding: 2px 8px; border-radius: 20px; margin-left: 8px; vertical-align: middle; text-transform: uppercase; }
+  .section-gap { margin-top: 28px; }
+  .double-note { background: var(--ice); border-left: 3px solid var(--sky); border-radius: 10px; padding: 14px 18px; margin: 20px 0 0; font-size: 12.5px; color: #2a4a60; line-height: 1.6; }
+  .double-note strong { color: var(--navy); }
+  .gold-banner { background: var(--gold); border-radius: 14px; padding: 18px 22px; margin-top: 24px; display: flex; align-items: center; gap: 14px; }
+  .gold-banner .star { font-size: 26px; }
+  .gold-banner .offer-text { color: var(--navy); font-size: 13px; line-height: 1.5; font-weight: 600; }
+  .gold-banner .offer-text span { font-weight: 300; display: block; font-size: 11.5px; margin-top: 2px; }
+  .notes-row { margin-top: 22px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .note-chip { background: var(--ice); border-radius: 8px; padding: 7px 13px; font-size: 11.5px; color: #3a5060; display: flex; align-items: center; gap: 5px; }
+  .pricing-footer { background: var(--navy); padding: 22px 44px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .pricing-footer .contact-info { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.7; }
+  .pricing-footer .contact-info strong { display: block; font-size: 15px; color: var(--sky-light); font-weight: 600; }
+  .pricing-footer .brand-mini { font-family: 'Bebas Neue', sans-serif; font-size: 24px; color: rgba(255,255,255,0.2); letter-spacing: 2px; text-align: right; line-height: 1.2; }
+  .pricing-footer .brand-mini span { display: block; font-size: 12px; letter-spacing: 3px; color: var(--sky-light); opacity: 0.7; }
+  @media (max-width: 480px) {
+    .pricing-header { padding: 28px 24px 24px; }
+    .pricing-header h1 { font-size: 26px; }
+    .strip { padding: 10px 24px; font-size: 12px; }
+    .pricing-body { padding: 24px 24px; }
+    .pricing-footer { padding: 18px 24px; }
+    .price-row .price { font-size: 18px; }
+    .price-row .item { font-size: 13px; }
+    .notes-row { gap: 6px; }
+    .note-chip { font-size: 11px; padding: 6px 10px; }
+  }
+</style>
+</head>
+<body>
+<div class="pricing-card">
+  <div class="pricing-header">
+    <div class="eyebrow">Pro Clean Window Detailing &middot; Atlanta, GA</div>
+    <h1>Clear pricing.<br><em>No surprises.</em></h1>
+    <p class="header-note">Every window is fully detailed &mdash; no shortcuts, no upsells.</p>
+  </div>
+  <div class="strip">&#10022; &nbsp;Priced per window &nbsp;&middot;&nbsp; Always detailed &nbsp;&middot;&nbsp; Exterior or Interior + Exterior &#10022;</div>
+  <div class="pricing-body">
+    <div class="section-title">SMALL WINDOWS</div>
+    <div class="section-sub">Up to 3 sq ft &mdash; bathroom, bedroom, small casement windows</div>
+    <div class="price-row">
+      <div><div class="item">Exterior Only</div><div class="desc">Outside glass, frame, sill &amp; track detailed</div></div>
+      <div class="price"><sup>$</sup>5 &ndash; <sup>$</sup>15</div>
+    </div>
+    <div class="price-row">
+      <div><div class="item">Interior + Exterior <span class="badge">Full Detail</span></div><div class="desc">Both sides cleaned &amp; detailed same visit</div></div>
+      <div class="price"><sup>$</sup>10 &ndash; <sup>$</sup>30</div>
+    </div>
+    <div class="section-title section-gap">LARGE WINDOWS</div>
+    <div class="section-sub">3 &ndash; 8 sq ft &mdash; living room, dining room, standard picture windows</div>
+    <div class="price-row">
+      <div><div class="item">Exterior Only</div><div class="desc">Outside glass, frame, sill &amp; track detailed</div></div>
+      <div class="price"><sup>$</sup>15 &ndash; <sup>$</sup>25</div>
+    </div>
+    <div class="price-row">
+      <div><div class="item">Interior + Exterior <span class="badge">Full Detail</span></div><div class="desc">Both sides cleaned &amp; detailed same visit</div></div>
+      <div class="price"><sup>$</sup>30 &ndash; <sup>$</sup>50</div>
+    </div>
+    <div class="section-title section-gap">OVERSIZED / SPECIALTY</div>
+    <div class="section-sub">8+ sq ft &mdash; floor-to-ceiling, skylights, sliding glass doors, custom glass</div>
+    <div class="price-row">
+      <div><div class="item">Exterior Only</div><div class="desc">Outside glass, frame, sill &amp; track detailed</div></div>
+      <div class="price"><sup>$</sup>30<small>+</small></div>
+    </div>
+    <div class="price-row">
+      <div><div class="item">Interior + Exterior <span class="badge">Full Detail</span></div><div class="desc">Both sides cleaned &amp; detailed same visit</div></div>
+      <div class="price"><sup>$</sup>60<small>+</small></div>
+    </div>
+    <div class="double-note">
+      <strong>Every window includes:</strong> streak-free glass &middot; frame &amp; edge detail &middot; sill wipe-down &middot; track cleaning &middot; screen inspection
+    </div>
+    <div class="gold-banner">
+      <span class="star">&#127873;</span>
+      <div class="offer-text">First-time customers get 15% off<span>Mention this flyer when you call or text to redeem!</span></div>
+    </div>
+    <div class="notes-row">
+      <div class="note-chip">&#9989; Free estimates</div>
+      <div class="note-chip">&#9989; Streak-free guaranteed</div>
+      <div class="note-chip">&#9989; Same-week availability</div>
+      <div class="note-chip">&#9989; Local &amp; reliable</div>
+    </div>
+  </div>
+  <div class="pricing-footer">
+    <div class="contact-info"><strong>link.me/proclean</strong>Call or text for a free quote<br>Based in Atlanta, GA</div>
+    <div class="brand-mini">PRO CLEAN<span>WINDOW DETAILING</span></div>
+  </div>
+</div>
+</body>
+</html>
